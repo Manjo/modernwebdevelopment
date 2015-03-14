@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Auction Homepage</title>
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/jquery-ui-1.10.4.custom.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="navbar navbar-inverse">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="javascript:void(0);">ABC Auction</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <form class="navbar-form navbar-left navbar-input-group" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Enter product name">
+                </div>
+                <button type="submit" class="btn btn-default" id="get-data-btn">Submit</button>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="javascript:void(0)"><span class="glyphicon glyphicon-question-sign"></span> Help</a>
+                </li>
+                <li><a href="javascript:void(0);"><span class="glyphicon glyphicon-user"></span> Login</a></li>
+                <li><a href="javascript:void(0)"><span class="glyphicon glyphicon-shopping-cart"></span> Shopping
+                    cart</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- / Navbar -->
+
+<!-- Search -->
+<div class="container" id="searchResults" style="display:none">
+    <!-- Location -->
+    <p><a id="homeLink">Home</a> <span class="glyphicon glyphicon-chevron-right"></span><span id="app-heading">Search results</span></p>
+
+    <!-- Form for search criteria -->
+    <!-- 
+        Basic Bootstrap grid sizing:
+        -Each Row contains 12 columns
+        -Defined by the class on dom elements
+        -Middle part of class is the display device, the predefined ones being
+            xs: extra small devices
+            sd: small devices
+            md: medium devices
+            lg: large devices
+        -Final part of class determines the actual amount of columns it takes
+        -If there is no sizings set for the current viewport, the display will use the closest smaller size device layout
+            *ie no medium device settings -> use small device
+        -Rows over 12 columns will spill over into a new row 
+    -->
+
+    <!-- Shameless theft of first row from http://dvandyshev.github.io/modernweb/#/search -->
+        <form class="row" role="form">
+
+            <div class="col-md-4"> 
+                <!-- The row-delta class here is just to remove the default padding on columns-->
+                <div class="col-xs-12 row-delta">
+                    <label>Product</label>
+                </div>
+
+                <div class="col-xs-12 row-delta">
+                    <!-- More custom CSS Rules, just removes padding from the specified side ie col-form-control-left sets left padding 0-->
+                    <div class="col-sm-6 col-md-12 col-form-control col-form-control-left">
+                        <input type="text" class="form-control" placeholder="Product title">
+                    </div>
+
+                    <div class="col-sm-6 col-md-12 col-form-control col-form-control-right">
+                        <select class="form-control">
+                            <option selected disabled>Category</option>
+                            <option>Phones</option>
+                            <option>Tablets</option>
+                            <option>Accessories</option>
+                            <option>Photo</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-md-4">
+                <div class="col-xs-12 row-delta">
+                    <label>Current Price</label>
+                </div>
+
+                <div class="col-xs-12 row-delta">
+                    <div class="col-xs-5 col-sm-6 col-md-5 col-form-control col-form-control-left">
+                        <input type="text" class="form-control" id="minAmount" readonly>
+                    </div>
+                    <div class="col-xs-2 col-md-2 clearfix hidden-sm"></div>
+                    <div class="col-xs-5 col-sm-6 col-md-5 col-form-control col-form-control-right">
+                        <input type="text" class="form-control" id="maxAmount" readonly>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 row-delta" style="margin-bottom: 10px; margin-top: 10px">
+                    <div id="slider" class="form-control"></div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-md-4">
+                <div class="col-xs-12 row-delta">
+                    <label>Max Auction Close Date</label>
+                </div>
+
+                <div class="col-xs-12 row-delta" style="margin-bottom: 10px">
+                    <input type="date" class="form-control">
+                </div>
+
+                <div class="col-xs-12 col-form-control row-delta">
+                    <div class="col-xs-6 row-delta">
+                        <label style="line-height: 34px">Number of Bids</label>
+                    </div>
+                    <div class="col-xs-3 col-xs-offset-3 row-delta">
+                        <input type="number" class="form-control" value="1">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 text-center">
+                <a href="javascript: void(0)" class="btn btn-default form-control">Find now</a>
+            </div>
+        </form>
+    <!-- /Shameless theft -->
+</div>
+<!-- /Search -->
+
+<div name="main" class="container">
+
+    <div class="row">
+        <!-- Featured Products -->
+
+        <div id="featured-product-carousel" class="carousel slide" data-pause="hover" data-wrap="true">
+
+        </div>
+
+        <!-- / Featured Products -->
+    </div>
+    <br/><br/>
+    <div class="row">
+        <!-- Featured Products list with thumbnails and description  -->
+        <ul class="list-unstyled" id="items-list">
+            
+        </ul>
+        <!-- / Featured Products list with thumbnails and description  -->
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <br/>
+        <a href="javascript:void(0)">Home</a> |
+        <a href="javascript:void(0)">Search</a> |
+        <a href="javascript:void(0)">About Us</a> |
+        <a href="javascript:void(0)">Terms of Service</a>
+        <br/><br/>
+    </footer>
+    <!-- / Footer -->
+
+
+
+</div>
+
+<script src="assets/js/jquery-2.1.0.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/jquery-ui-1.10.4.custom.min.js"></script>
+<script src="assets/js/handlebars-v1.3.0-2.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>

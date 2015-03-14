@@ -1,0 +1,15 @@
+{
+    "items": [
+    {
+        "title": "Item 1",
+        "src": "assets/img/promo-product-1.jpg"
+    },
+    {
+        "title": "Item 2",
+        "src": "assets/img/promo-product-2.jpg"
+    },
+    {
+        "title": "Item 3",
+        "src": "assets/img/promo-product-3.jpg"
+    }]
+}

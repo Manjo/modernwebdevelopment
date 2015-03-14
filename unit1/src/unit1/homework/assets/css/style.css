@@ -1,0 +1,41 @@
+.item-title {
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 767px) {
+    .text-data {
+        margin-top: 12px;
+        text-align: left;
+    }
+
+    .col-form-control {
+        padding-left: 0px;
+        padding-right: 0px;
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .col-form-control-left {
+        padding-left: 0px;
+        margin-bottom: 10px;
+    }
+
+    .col-form-control-right {
+        padding-right: 0px;
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .col-form-control {
+        padding-left: 0px;
+        padding-right: 0px;
+        margin-bottom: 10px;
+    }
+}
+
+.row-delta {
+    /* padding-right: 0px; */
+    /* padding-left: 0px; */
+}

@@ -1,0 +1,19 @@
+<ol class="carousel-indicators">
+{{#each this}}
+    <li data-target="#featured-product-carousel" data-slide-to="{{@index}}" class="{{#if @first}}active{{/if}}"></li>
+{{/each}}
+</ol>
+<div class="carousel-inner">
+    {{#each this}}
+    <div class="item{{#if @first}} active{{/if}}">
+        <img src="{{src}}" alt="{{title}}" class="img-responsive center-block">
+    </div>   
+    {{/each}}
+</div>
+<!-- Controls, these could probably be moved out -->
+<a class="left carousel-control" href="#featured-product-carousel" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+</a>
+<a class="right carousel-control" href="#featured-product-carousel" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+</a>
